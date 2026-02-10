@@ -17,9 +17,9 @@ export const Toast: React.FC<ToastProps> = ({ notification, onClose }) => {
 
   const getIcon = () => {
     switch (notification.type) {
-      case 'success': return <CheckCircle size={20} />;
-      case 'error': return <AlertCircle size={20} />;
-      default: return <Info size={20} />;
+      case 'success': return <CheckCircle size={20} aria-hidden="true" />;
+      case 'error': return <AlertCircle size={20} aria-hidden="true" />;
+      default: return <Info size={20} aria-hidden="true" />;
     }
   };
 
@@ -32,14 +32,22 @@ export const Toast: React.FC<ToastProps> = ({ notification, onClose }) => {
   };
 
   return (
-    <div className={`flex items-center gap-3 px-4 py-3 rounded-lg shadow-lg border animate-fade-in-up transition-all ${getStyles()}`}>
+    <div
+      className={`relative overflow-hidden flex items-center gap-3 px-4 py-3 rounded-xl shadow-lg border animate-toast-in transition-all ${getStyles()}`}
+      role="alert"
+      aria-live="assertive"
+    >
+      <div className="absolute left-0 right-0 bottom-0 h-1 bg-white/40" aria-hidden="true">
+        <div className="h-full bg-current/70 animate-progress-shrink" />
+      </div>
       <div className="flex-shrink-0">{getIcon()}</div>
       <p className="text-sm font-medium">{notification.message}</p>
-      <button 
+      <button
         onClick={() => onClose(notification.id)}
         className="ml-2 text-current opacity-60 hover:opacity-100"
+        aria-label="Cerrar notificación"
       >
-        <X size={16} />
+        <X size={16} aria-hidden="true" />
       </button>
     </div>
   );

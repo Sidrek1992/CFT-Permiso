@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Sistema de Gestión de Recursos Humanos para instituciones. Administra funcionarios, permisos, vacaciones, licencias médicas y genera reportes institucionales." />
+    <meta name="theme-color" content="#0f172a" />
     <title>Gestión HR Institucional</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -18,30 +20,58 @@
           -ms-overflow-style: none;
           scrollbar-width: none;
       }
-      .animate-fade-in {
-        animation: fadeIn 0.3s ease-in-out;
-      }
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
+      /* Animation keyframes */
+      @keyframes fade-in {
+        from { opacity: 0; transform: translateY(8px); }
         to { opacity: 1; transform: translateY(0); }
       }
+      @keyframes fade-in-up {
+        from { opacity: 0; transform: translateY(16px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes toast-in {
+        from { opacity: 0; transform: translateX(18px) scale(0.98); }
+        to { opacity: 1; transform: translateX(0) scale(1); }
+      }
+      @keyframes progress-shrink {
+        from { width: 100%; }
+        to { width: 0%; }
+      }
+      @keyframes shimmer {
+        0% { background-position: -250px 0; }
+        100% { background-position: calc(250px + 100%) 0; }
+      }
+      .animate-fade-in { animation: fade-in 0.3s ease-out; }
+      .animate-fade-in-up { animation: fade-in-up 0.4s ease-out; }
+      .animate-reveal { animation: fade-in-up 0.45s ease-out both; }
+      .animate-toast-in { animation: toast-in 0.28s ease-out; }
+      .animate-progress-shrink { animation: progress-shrink 4s linear forwards; }
+      .skeleton-shimmer {
+        background: linear-gradient(90deg, #e2e8f0 20%, #f8fafc 45%, #e2e8f0 70%);
+        background-size: 280px 100%;
+        animation: shimmer 1.3s infinite linear;
+      }
+
+      /* Skip to content link for accessibility */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: #4f46e5;
+        color: white;
+        padding: 8px 16px;
+        z-index: 100;
+        border-radius: 0 0 8px 0;
+        transition: top 0.2s;
+      }
+      .skip-link:focus {
+        top: 0;
+      }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "recharts": "https://esm.sh/recharts@^3.7.0",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
-    "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
-    "xlsx": "https://esm.sh/xlsx@0.18.5",
-    "jspdf": "https://esm.sh/jspdf@2.5.1"
-  }
-}
-</script>
-</head>
-  <body class="bg-slate-50 text-slate-900 antialiased">
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>

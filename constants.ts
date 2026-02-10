@@ -1,6 +1,8 @@
 import { Employee, LeaveRequest, LeaveType, LeaveStatus, WorkShift } from './types';
 
 // Holidays for 2025 and 2026 (YYYY-MM-DD)
+// Source: Biblioteca del Congreso Nacional de Chile — Ley 20.983 y modificaciones
+// 2026 dates are estimated (holidays with date fluctuation may vary)
 export const HOLIDAYS = [
   // 2025
   '2025-01-01', // Año Nuevo
@@ -19,7 +21,7 @@ export const HOLIDAYS = [
   '2025-11-01', // Todos los Santos
   '2025-12-08', // Inmaculada Concepción
   '2025-12-25', // Navidad
-  
+
   // 2026 (Estimated)
   '2026-01-01',
   '2026-04-03', // Viernes Santo
@@ -126,7 +128,7 @@ export const INITIAL_REQUESTS: LeaveRequest[] = [
   createReq('106', '6', '2026-01-06', '2026-01-06', 0.5, LeaveType.ADMINISTRATIVE, WorkShift.JT), // Romina Siau
   createReq('107', '7', '2026-01-09', '2026-01-09', 0.5, LeaveType.ADMINISTRATIVE, WorkShift.JM), // Sebastian Troncoso
   createReq('108', '8', '2026-01-08', '2026-01-08', 1.0, LeaveType.ADMINISTRATIVE, WorkShift.JC), // Alvaro Ron
-  createReq('109', '9', '2026-12-08', '2026-02-18', 42.0, LeaveType.SICK_LEAVE, WorkShift.JC), // Alejandra Leiva
+  createReq('109', '9', '2025-12-08', '2026-02-18', 42.0, LeaveType.SICK_LEAVE, WorkShift.JC), // Alejandra Leiva
   createReq('110', '10', '2026-01-09', '2026-01-09', 0.5, LeaveType.ADMINISTRATIVE, WorkShift.JM), // Paola Reyes
   createReq('111', '11', '2026-01-16', '2026-01-16', 1.0, LeaveType.ADMINISTRATIVE, WorkShift.JC), // Rodrigo Marin
   createReq('112', '12', '2026-01-06', '2026-03-30', 84.0, LeaveType.PARENTAL, WorkShift.JC), // Karen Diaz
@@ -157,7 +159,7 @@ export const INITIAL_REQUESTS: LeaveRequest[] = [
   createReq('137', '29', '2026-01-27', '2026-01-27', 0.5, LeaveType.ADMINISTRATIVE, WorkShift.JM), // Alonso Pereda
   createReq('138', '30', '2026-01-29', '2026-01-29', 1.0, LeaveType.SICK_LEAVE, WorkShift.JC), // Maximiliano Guzman
   createReq('139', '21', '2026-01-30', '2026-01-30', 0.5, LeaveType.ADMINISTRATIVE, WorkShift.JT), // Silvia Esquivel (2)
-  
+
   // New Requests added from updated list
   createReq('201', '31', '2026-02-16', '2026-03-03', 12.0, LeaveType.LEGAL_HOLIDAY, WorkShift.JC), // Roxany Mery
   createReq('202', '32', '2026-02-02', '2026-02-27', 20.0, LeaveType.LEGAL_HOLIDAY, WorkShift.JC), // Reinaldo Valencia
@@ -173,7 +175,7 @@ export const INITIAL_REQUESTS: LeaveRequest[] = [
   createReq('212', '5', '2026-02-27', '2026-03-02', 2.0, LeaveType.LEGAL_HOLIDAY, WorkShift.JC), // Gloria Bolaño (4)
   createReq('213', '38', '2026-02-02', '2026-02-20', 15.0, LeaveType.LEGAL_HOLIDAY, WorkShift.JC), // Anibal Carrasco
   createReq('214', '7', '2026-02-02', '2026-02-02', 1.0, LeaveType.LEGAL_HOLIDAY, WorkShift.JC), // Sebastian Troncoso
-  createReq('215', '39', '2026-02-02', '2026-02-02', 1.0, LeaveType.LEGAL_HOLIDAY, WorkShift.JM), // Yanet Esquivel
+  createReq('215', '39', '2026-02-02', '2026-02-02', 0.5, LeaveType.LEGAL_HOLIDAY, WorkShift.JM), // Yanet Esquivel
   createReq('216', '40', '2026-02-02', '2026-02-13', 10.0, LeaveType.LEGAL_HOLIDAY, WorkShift.JC), // Nicole Ortega
   createReq('217', '23', '2026-02-05', '2026-02-27', 17.0, LeaveType.LEGAL_HOLIDAY, WorkShift.JC), // José Manuel Montero
   createReq('218', '8', '2026-02-03', '2026-02-23', 15.0, LeaveType.LEGAL_HOLIDAY, WorkShift.JC), // Álvaro Ron
